@@ -1,0 +1,14 @@
+
+header{
+    display: flex;
+    justify-content: space-between;    
+    background-color: #213e60;
+}
+
+.logo{
+
+    height: 50px;
+    background-color: aliceblue;
+
+
+}
