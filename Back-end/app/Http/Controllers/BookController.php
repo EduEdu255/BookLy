@@ -15,7 +15,7 @@ class BookController extends Controller
     public function show(Request $request, int $id)
     {
         if (!$book = $request->user()->books()->find($id)) {
-            return response()->json(['message' => 'Livro não encontrado'], 404);
+            return response()->json(['message' => 'Book not found'], 404);
         }
 
         return response()->json($book);
@@ -34,7 +34,7 @@ class BookController extends Controller
         Book::create($new_book);
 
         return response()->json([
-            'message' => 'Livro adicionado com sucesso',
+            'message' => 'Book added succesfully',
             'book' => $new_book
         ], 201);
     }
