@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criar Produto</title>
-    <link rel="stylesheet" href="/Front-end/Front-End/Style/reset.css" />
-    <link rel="stylesheet" href="/Front-end/Front-End/Style/Create_Products.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-
-
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/global.css">
+    <script src="../../scripts/helloworld.js"></script>
 </head>
+
 <body>
     <Header>
         <div class="logo_header">
-            <img src="/Front-end/Front-End/svg/Logo_BookNest.svg" class="logo" /> 
+            <img src="../../images/logo.svg" class="logo" />
         </div>
         <div class="menu_header">
             <a>Botão1</a>
@@ -25,41 +27,42 @@
         </div>
     </Header>
     <main class="conteudo">
-            <h2>Cadastro de Livro</h2>
+        <h2>Cadastro de Livro</h2>
         <form>
             <section class=" cadastrar_livro">
                 <div class="infor">
                     <label for="titulo">Título:</label>
                     <input type="text" id="titulo" name="titulo" required><br><br>
-    
+
                     <label for="autor">Autor:</label>
                     <input type="text" id="autor" name="autor" required><br><br>
-    
+
                     <label for="genero">Gênero:</label>
                     <input type="text" id="genero" name="genero" required><br><br>
-    
+
                     <label for="ano">Ano de Publicação:</label>
                     <input type="number" id="ano" name="ano" required><br><br>
-    
+
                     <label for="preco">Preço (R$):</label>
                     <input type="number" id="preco" name="preco" step="0.01" required><br><br>
-                
+
                 </div>
                 <div>
                     <label for="imagem" class="label_img">Escolher imagem</label>
-                    <input class="label_img" type="file" id="imagem" name="imagem" accept="image/*" style="display: none;" />
-    
+                    <input class="label_img" type="file" id="imagem" name="imagem" accept="image/*"
+                        style="display: none;" />
+
                 </div>
             </section>
             <div class="cadastrar_button">
                 <button type="submit">Cadastrar Livro</button>
             </div>
-            
+
         </form>
 
 
     </main>
-    
+
     <footer>
         <div class="infor_footer">
             <div>
@@ -70,7 +73,7 @@
                 <p>Link</p>
             </div>
             <div class="imagem_footer">
-                <img src="/Front-end/Front-End/svg/Logo_BookNest.svg" class="logo_footer" />
+                <img src="../../images/logo.svg" class="logo_footer" />
             </div>
 
         </div>
@@ -79,4 +82,5 @@
         </div>
     </footer>
 </body>
+
 </html>

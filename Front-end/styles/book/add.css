@@ -1,26 +1,26 @@
 /* Header */
-header{
+header {
     display: flex;
     align-items: center;
-    justify-content: space-between;    
+    justify-content: space-between;
     background-color: #213e60;
 }
 
-.logo{
+.logo {
 
     height: 70px;
     margin: 20px;
 }
 
-.menu_header{
+.menu_header {
     display: flex;
-    justify-content: space-between;    
+    justify-content: space-between;
     gap: 20px;
     margin: 50px;
     color: aliceblue;
 }
 
-.conteúdo{
+.conteúdo {
     height: 30vh;
 }
 
@@ -34,7 +34,7 @@ body {
 }
 
 
-.conteudo{
+.conteudo {
     padding-top: 100px;
     padding-bottom: 100px;
     padding-left: 50vh;
@@ -68,8 +68,9 @@ input {
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    
+
 }
+
 button {
     width: 25%;
     height: 75%;
@@ -88,20 +89,20 @@ button:hover {
     background: #213e60;
 }
 
-.cadastrar_button{
+.cadastrar_button {
     display: flex;
     justify-content: end;
     height: 9vh;
 }
 
-.cadastrar_livro{
+.cadastrar_livro {
     display: flex;
     justify-content: space-between;
-    
+
 }
 
-.infor{
-    
+.infor {
+
     width: 70%;
 }
 
@@ -129,36 +130,35 @@ button:hover {
 
 /* Footer */
 
-footer{
+footer {
     background-color: #213e60;
     padding: 20px;
-   
+
 }
 
-.infor_footer{
+.infor_footer {
     display: flex;
     align-items: center;
     justify-content: space-around;
     height: 50vh;
 }
 
-.logo_footer{
+.logo_footer {
 
     height: 20vh;
 
 }
 
-.imagem_footer{
+.imagem_footer {
 
     align-items: center;
     justify-content: center;
-    
+
 }
 
-.copy{
+.copy {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 50px;
 }
-
