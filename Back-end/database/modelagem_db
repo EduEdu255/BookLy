@@ -3,7 +3,9 @@ CREATE TABLE Usuario (
     nome VARCHAR(255) NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
     data_nascimento DATE,
-    senha_hash VARCHAR(255) NOT NULL
+    senha_hash VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 CREATE TABLE Livro (
@@ -13,13 +15,43 @@ CREATE TABLE Livro (
     genero VARCHAR(100),
     ano_publicacao YEAR,
     preco DECIMAL(10,2),
-    imagem VARCHAR(255) -- Caminho da imagem
+    imagem VARCHAR(255), -- Caminho da imagem
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE Autenticacao (
     usuario_id INT PRIMARY KEY,
     token VARCHAR(255) UNIQUE NOT NULL,
     criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    expira_em TIMESTAMP,
-    FOREIGN KEY (usuario_id) REFERENCES Usuario(id) ON DELETE CASCADE
+    expira_em TIMESTAMP NOT NULL,
+    FOREIGN KEY (usuario_id) REFERENCES Usuario(id) ON DELETE CASCADE
+);
+
+CREATE TABLE Seguidores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT NOT NULL,
+    seguidor_id INT NOT NULL,
+    FOREIGN KEY (usuario_id) REFERENCES Usuario(id) ON DELETE CASCADE,
+    FOREIGN KEY (seguidor_id) REFERENCES Usuario(id) ON DELETE CASCADE,
+    UNIQUE (usuario_id, seguidor_id)
+);
+
+CREATE TABLE Biblioteca (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT NOT NULL,
+    livro_id INT NOT NULL,
+    status ENUM('Já li', 'Estou lendo', 'Quero ler', 'Relendo', 'Abandonei') NOT NULL,
+    FOREIGN KEY (usuario_id) REFERENCES Usuario(id) ON DELETE CASCADE,
+    FOREIGN KEY (livro_id) REFERENCES Livro(id) ON DELETE CASCADE,
+    UNIQUE (usuario_id, livro_id)
+);
+
+CREATE TABLE Resenha (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT NOT NULL,
+    livro_id INT NOT NULL,
+    texto TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (usuario_id) REFERENCES Usuario(id) ON DELETE CASCADE,
+    FOREIGN KEY (livro_id) REFERENCES Livro(id) ON DELETE CASCADE
 );
