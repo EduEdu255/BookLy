@@ -349,3 +349,8 @@ header{
     justify-items: center;
     padding: 25px;
 }
+
+.botton{
+    display:flex;
+    
+}
