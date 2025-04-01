@@ -324,11 +324,28 @@ header{
 
 }
 
+
+.add-button-resumo{
+    display: block;
+    padding: 7px;
+    margin-top: 15px;
+    background: #006C9C;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 10vw;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
 .info-resumo{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     justify-items: center;
     padding: 25px;
 }
