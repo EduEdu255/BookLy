@@ -10,7 +10,6 @@ body {
 
 header{
     width: 100vw;
-    
     background: #1a3c66;
     
 }
@@ -22,14 +21,17 @@ header{
 
 .img-profile {
     position: absolute;
-    top: 130px; 
+    top: 85px; 
     left: 20px; 
-    width: 150%;  
-    height: 150px;
+    width: 4vw;  
     margin-left: 4vh; 
     border-radius: 50%;
     border: 3px solid white;
     object-fit: cover; 
+}
+
+.profile a{
+    margin-left: ;
 }
 
 .header {
@@ -39,22 +41,18 @@ header{
     align-items: center;
     background: #1a3c66;
     color: white;
-    padding: 15px;
+    padding: 5px;
 }
 
 .profile {
     display: flex;
     align-items: center;
-    padding-left: 5vw;
-    background-color: #27ae60;
+    padding-left: 7vw;
+   font-size: 20px;
+   font-weight: 600;
 }
 
-.profile img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
+
 
 .menu{
     margin-right: 5%;
@@ -83,7 +81,7 @@ header{
     margin-top: 20px;
 }
 
-.add_titulo{
+.add-titulo{
 
     margin-bottom: 25px;
     font-weight: 700;
@@ -91,8 +89,9 @@ header{
 
 }
 
-.container_book{
+.container-book{
     display: flex;
+    justify-content: space-around;
 }
 
 .search-box {
@@ -111,30 +110,35 @@ header{
     gap: 20px;
 }
 
-.book_info{
+.book-info{
     
     width: 45vw;
 }
 
-.livro_capa{
+.livro-capa{
     
     background-color: #444;
     height: 100vh;
 }
 
 .book-container img {
-    width: 120px;
+    width: 15vw;
     height: auto;
     border-radius: 5px;
 }
 
 .book-info {
-    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    gap: 15px
 }
 
 .book-info h2 {
     margin: 0;
-    font-size: 1.2em;
+    font-size: 25px;
+    font-weight: 600;
+    width: 12vw;
 }
 
 .book-info .author {
@@ -143,12 +147,17 @@ header{
 }
 
 .rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: #27ae60;
     color: white;
-    padding: 5px;
-    border-radius: 5px;
-    display: inline-block;
+    padding: 10px;
+    border-radius: 10px;
     margin-top: 5px;
+    width: 4vw;
+    height: 4vh;
+    font-size: 25px;
 }
 
 .book-stats {
@@ -163,7 +172,7 @@ header{
 
 .book-stats div {
     text-align: center;
-    font-weight: bold;
+    font-weight: 400;
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -188,20 +197,43 @@ header{
     font-size: 0.9em;
     color: #444;
     line-height: 30px;
+    width: 45vw;
+  
 }
 
 .info {
-    
+
+    display: flex;
+    align-items: center;
+    justify-items: center;
     padding: 10px;
     border-radius: 5px;
     margin-top: 10px;
     font-size: 0.9em;
+    font-weight: 600;
+    gap: 5px;
+    color: #0056b3;
+}
+
+.div-actions{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
 }
 
 .actions {
+    border-radius: 15px;
+    box-shadow: inset 2px 2px 8px rgba(0, 0, 0, 0.4), 
+                inset -2px -2px 8px rgba(255, 255, 255, 0.3);
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     margin-top: 20px;
+    padding: 5px;
+    width: 35vw;
+
 }
 
 .btn {
@@ -216,29 +248,34 @@ header{
 .btn.active {
     background: #006C9C;
     color: white;
+    border-radius: 13px;
     
 }
 
 .add-button {
     display: block;
-    width: 100%;
-    padding: 10px;
+    padding: 7px;
     margin-top: 15px;
     background: #006C9C;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 75%;
+    width: 30vw;
     border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+
 }
 
-.div_add_button{
+.div-add-button{
     display: flex;
     justify-content: center;
+    
 }
 
 .add-button:hover {
     background: #0056b3;
     border-radius: 10px;
+    
 }
