@@ -64,3 +64,16 @@ CREATE TABLE autenticacao (
     expira_em TIMESTAMP NOT NULL,
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
 );
+CREATE TABLE logs_atividade (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT NOT NULL,
+    acao VARCHAR(100) NOT NULL, 
+    tabela_afetada VARCHAR(100) NOT NULL, 
+    registro_id INT NOT NULL, 
+    detalhes TEXT, 
+    ip_origem VARCHAR(45), 
+    user_agent TEXT, 
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+
