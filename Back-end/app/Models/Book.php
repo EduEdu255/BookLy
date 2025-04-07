@@ -12,6 +12,7 @@ class Book extends Model
         'title',
         'description',
         'author',
+        'status',
         'published_at'
     ];
 
