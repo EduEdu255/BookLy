@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>biblioteca</title>
+    <title>Alterar Resumo</title>
     <link rel="stylesheet" href="/Front-end/styles/general/reset.css" />
-    <link rel="stylesheet" href="/Front-end/styles/biblioteca.css">
+    <link rel="stylesheet" href="/Front-end/styles/alterar-resumo.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-
-    <title>Biblioteca</title>
 </head>
 <body>
     <header>
@@ -53,46 +51,27 @@
 
         <input type="text" class="search-box" placeholder="Busque por título, autor, editora, ISBN...">
 
-        <h1 class="add-titulo">Minha Biblioteca</h1>
-        
-        <div class="container">
 
-            <div class="grid">
-              <div class="book">
-                <img src="/Front-end/images/Capa Livro Exemplo.png" alt="Harry Potter e o Cálice de Fogo" />
-                <p>Harry Potter e o Cálice de Fogo</p>
-                <span>05 Oct 2022</span>
-              </div>
-              <div class="book">
-                <img src="/Front-end/images/Capa Livro Exemplo.png" alt="Harry Potter e o Cálice de Fogo" />
-                <p>Harry Potter e o Cálice de Fogo</p>
-                <span>05 Oct 2022</span>
-              </div>
-        
-              <div class="book">
-                <img src="/Front-end/images/Capa Livro Exemplo.png" alt="Harry Potter e o Cálice de Fogo" />
-                <p>Harry Potter e o Cálice de Fogo</p>
-                <span>05 Oct 2022</span>
-              </div>
-        
-              <div class="book">
-                <img src="/Front-end/images/Capa Livro Exemplo.png" alt="Harry Potter e o Cálice de Fogo" />
-                <p>Harry Potter e o Cálice de Fogo</p>
-                <span>05 Oct 2022</span>
-              </div>
-
-              <div class="book">
-                <img src="/Front-end/images/Capa Livro Exemplo.png" alt="Harry Potter e o Cálice de Fogo" />
-                <p>Harry Potter e o Cálice de Fogo</p>
-                <span>05 Oct 2022</span>
-              </div>
-        
+        <div class="container-edit">
+            <div class="top-bar">
+              <a href="#" class="back-button">← Back</a>
+              <h1>Adicionar resumo</h1>
             </div>
-          </div>
+        
+            <section class="book-info">
+                <div class="book-info-container">
+                    <img src="/Front-end/images/Capa Livro Exemplo.png" alt="Capa do livro O Morro dos Ventos Uivantes" />
+                    <div class="book-title">
+                    <h2>O Morro dos Ventos Uivantes</h2>
+                    <p>Emily Brontë</p>
+              </div>
+            </section>
+        
+            <section class="content-box">
+                <textarea class="campo-texto" placeholder="Digite aqui..."></textarea>
 
-        
-        
-        
+            </section>
+        </div>
     </main>
 </body>
 </html>
