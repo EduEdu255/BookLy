@@ -12,9 +12,16 @@ class UserController extends Controller
         return response()->json($request->user());
     }
 
-    public function update(Request $request, int $id)
+    public function update(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'sometimes|string|max:255',
+            'email' => 'sometimes|string|email|max:255|unique:users',
+        ]);      
+
+        $request->user()->update($validated);
+
+        return response()->json(['message' => 'Usuário atualizado com sucesso']);
     }
 
     public function delete(Request $request)

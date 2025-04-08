@@ -24,7 +24,18 @@ class NoteController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required',
+            'book_id' => 'required|integer|exists:books,id' 
+        ]);
+
+        $note = Note::create($validated);
+
+        return response()->json([
+            'message' => 'Anotação criada com sucesso',
+            'note' => $note
+        ], 201);
     }
 
     public function delete(Request $request, int $id)

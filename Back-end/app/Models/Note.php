@@ -8,7 +8,8 @@ class Note extends Model
 {
     protected $fillable = [
         'title',
-        'content'
+        'content',
+        'book_id'
     ];
 
     public function book(){
