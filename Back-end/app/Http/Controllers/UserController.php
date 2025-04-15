@@ -12,6 +12,20 @@ class UserController extends Controller
         return response()->json($request->user());
     }
 
+    public function findById(int $id)
+    {
+        if(!$user = User::find($id)){
+            return response()->json([
+                'message' => 'Usuário não encontrado'
+            ], 404);
+        }
+
+        return response()->json([
+            'message' => 'Usuário encontrado com sucesso',
+            'user' => $user
+        ]);
+    }   
+
     public function update(Request $request)
     {
         $validated = $request->validate([
