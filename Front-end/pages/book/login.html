@@ -1,31 +1,82 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Front-end/styles/style.css">
     <title>Booknest - Login</title>
 </head>
+
 <body>
     <div class="left">
-         <img src="/Front-end/images/foto_login.png" alt="Booknest" width="1500" >
+        <img src="/Front-end/images/foto_login.png" alt="Booknest" width="1500">
     </div>
     <div class="right">
-        <a href="inicial.html">  <img src="/Front-end/images/logo.png" alt=""></a>
-        <h2>Faça seu login</h2>
-        <p class="a">Não tem uma conta? <a href="cadastro.html" style="color: #02A5FF; font-size: 10px;">Cadastre-se aqui!</a></p>
-        <form>
+        <a href="inicial.html"> <img src="/Front-end/images/logo.png" alt=""></a>
+        <h2 class="title">Faça seu login</h2>
+        <p class="a">Não tem uma conta?
+            <a href="cadastro.html" style="color: #F7931A; font-size: 0.75rem; font-weight: bold;">Cadastre-se aqui!</a>
+        </p>
+
+        <form id="loginForm">
             <label for="email">Email</label>
-            <input type="email" id="email" placeholder="" required>
-            
+            <input type="email" id="email" required>
+
             <label for="senha">Senha</label>
-            <input type="password" id="senha" placeholder="" required>
+            <input type="password" id="senha" required>
 
             <a href="/Front-end/pages/book/recuperar-senha.html" class="esqueci-senha">Esqueci a senha</a>
 
-            <button type="submit">Entrar</button>
-        </form>
 
+            <button type="submit" id="loginButton">Entrar</button>
+        </form>
     </div>
 </body>
+
 </html>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const button = document.getElementById('loginButton');
+        button.disabled = true;
+        button.textContent = 'Entrando...';
+
+        const formData = {
+            email: document.getElementById('email').value,
+            password: document.getElementById('senha').value
+        };
+
+        try {
+            const response = await fetch('http://127.0.0.1:8000/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const data = await response.json();
+
+            console.log(data);
+            // return;
+
+            if (response.ok) {
+                console.log(data);
+                localStorage.setItem('token', data.token);
+                window.location.href = '/Front-end/pages/book/biblioteca.html';
+            } else {
+                alert(data.message || 'Email ou senha inválidos.');
+            }
+
+        } catch (error) {
+            console.error('Erro no login:', error);
+            alert('Erro inesperado. Tente novamente mais tarde.');
+        } finally {
+            button.disabled = false;
+            button.textContent = 'Entrar';
+        }
+    });
+</script>

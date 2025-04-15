@@ -50,6 +50,11 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.title{
+    font-size: 2rem;
+}
+
 form {
     display: flex;
     flex-direction: column;
@@ -65,17 +70,19 @@ label {
 input, button {
     padding: 10px;
     border: none;
-    border-radius: 15px;
+    border-radius: 5px;
 }
 button {
     background: #F7931A;
     color: white;
     cursor: pointer;
+    margin-top: 20px;
+    font-size: 1rem;
+    font-weight: bold;
 }
 input {
     padding: 10px;
-    border: 1px solid #777; 
-    border-radius: 5px;
+    border: 1px solid #777;
     background-color: #213E60; 
     color: white;
     outline: none;
@@ -86,8 +93,10 @@ input::placeholder {
 }
 
 .a{
-    font-size: 14px;   
+    font-size: 1rem;   
+    margin-bottom: 32px;
 }
+
 .f{
     flex: 1;
     background: white;
