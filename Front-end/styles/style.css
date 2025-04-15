@@ -102,3 +102,11 @@ input::placeholder {
     max-height: 1000vh; 
     object-fit: contain; 
 }
+
+.esqueci-senha{
+
+    color: #F7931A;
+    text-align: end;
+    font-size: 15px;
+
+}
