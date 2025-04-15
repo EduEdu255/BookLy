@@ -1,0 +1,281 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+
+/*Header*/
+
+header{
+    width: 100vw;
+    background: #1a3c66;
+    
+}
+
+.img-header{
+    width: 100vw;
+    height: 15vh;
+}
+
+.img-profile {
+    position: absolute;
+    top: 85px; 
+    left: 20px; 
+    width: 4vw;  
+    margin-left: 4vh; 
+    border-radius: 50%;
+    border: 3px solid white;
+    object-fit: cover; 
+}
+
+.profile a{
+    margin-left: 10px;
+}
+
+.header {
+    width: 100vw;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1a3c66;
+    color: white;
+    padding: 5px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    padding-left: 7vw;
+   font-size: 20px;
+   font-weight: 600;
+}
+
+
+
+.menu{
+    margin-right: 5%;
+    display: flex;
+    gap: 5px;
+}
+
+.menu .links {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+
+/*Main*/
+
+
+.container {
+
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.add-titulo{
+
+    margin-bottom: 25px;
+    font-weight: 700;
+    font-size: 35px;
+
+}
+
+.container-book{
+    display: flex;
+    justify-content: space-around;
+}
+
+.search-box {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    background-color: #ebebeb;
+}
+
+.book-container {
+    height: 40vh;
+    width: 40vh;
+    align-items: center;
+    gap: 20px;
+}
+
+.book-info{
+    
+    width: 45vw;
+}
+
+.livro-capa{
+    
+    background-color: #444;
+    height: 100vh;
+}
+
+.book-container img {
+    width: 15vw;
+    height: auto;
+    border-radius: 5px;
+}
+
+.book-info {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    gap: 15px
+}
+
+.book-info h2 {
+    margin: 0;
+    font-size: 25px;
+    font-weight: 600;
+    width: 12vw;
+}
+
+.book-info .author {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #27ae60;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 5px;
+    width: 4vw;
+    height: 4vh;
+    font-size: 25px;
+}
+
+.book-stats {
+    display: flex;
+    justify-content: space-around;
+    
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    
+}
+
+.book-stats div {
+    text-align: center;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background-color: #fff;
+    padding: 10px;
+    height: 5vh;
+    width: 5vw;
+    border-radius: 10px;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+}
+
+.book-stats div span {
+    color: #0056b3;
+    font-weight: 200;
+    font-size: 30px;
+}
+
+.description {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #444;
+    line-height: 30px;
+    width: 45vw;
+  
+}
+
+.info {
+
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 0.9em;
+    font-weight: 600;
+    gap: 5px;
+    color: #0056b3;
+}
+
+.div-actions{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+
+.actions {
+    border-radius: 15px;
+    box-shadow: inset 2px 2px 8px rgba(0, 0, 0, 0.4), 
+                inset -2px -2px 8px rgba(255, 255, 255, 0.3);
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 5px;
+    width: 35vw;
+
+}
+
+.btn {
+    background: #eef2f5;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+
+.btn.active {
+    background: #006C9C;
+    color: white;
+    border-radius: 13px;
+    
+}
+
+.add-button {
+    display: block;
+    padding: 7px;
+    margin-top: 15px;
+    background: #006C9C;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 30vw;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+
+}
+
+.div-add-button{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.add-button:hover {
+    background: #0056b3;
+    border-radius: 10px;
+    
+}
