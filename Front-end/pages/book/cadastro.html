@@ -1,32 +1,84 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Front-end/styles/style.css">
     <title>Booknest - Cadastro</title>
 </head>
+
 <body>
 
     <div class="left">
-       <a href="inicial.html"> <img src="/Front-end/images/logo azul.png" alt="Booknest" class="logo" ></a>
+        <a href="inicial.html"> <img src="/Front-end/images/logo azul.png" alt="Booknest" class="logo"></a>
         <img src="/Front-end/images/papel.png" alt="Imagem de papel" class="papel">
     </div>
-    
+
     <div class="right">
-        <h2>Crie sua conta!</h2>
-        <p class="a">Já tem uma conta? <a href="login.html" style="color: #02A5FF; font-size: 10px;">Entre aqui!</a></p>
-        <form>
-            <label for="nome">Nome</label>
-            <input type="text" placeholder="" required>
+        <h2 class="title">Crie sua conta!</h2>
+        <span class="a">Já tem uma conta?
+            <a href="login.html" style="color: #F7931A; font-size: 0.75rem; font-weight: bold;">Entre aqui!</a>
+        </span>
+
+        <form id="cadastroForm">
+            <label for="name">Nome</label>
+            <input type="text" id="name" name="name" required>
+
             <label for="email">Email</label>
-            <input type="email" placeholder="" required>
-            <label for="nasc">Data de Nascimento</label>
-            <input type="date" placeholder="Data de Nascimento" required>
-            <label for="senha">Senha</label>
-            <input type="password" placeholder="" required>
-            <button type="submit">Criar conta</button>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Senha</label>
+            <input type="password" id="password" name="password" required>
+
+            <button id="registerButton" type="submit">Criar conta</button>
         </form>
     </div>
 </body>
+
 </html>
+
+<script>
+    document.getElementById('cadastroForm').addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const button = document.getElementById('registerButton');
+        button.disabled = true;
+        button.textContent = 'Criando conta...';
+
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            password: document.getElementById('password').value
+        };
+
+        try {
+            const response = await fetch('http://127.0.0.1:8000/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            let user = await response.json();
+
+            console.log(user);
+            // return;
+
+            if (response.ok) {
+                window.location.href = '/Front-end/pages/book/login.html';
+                return;
+            } else {
+                const data = await response.json();
+                alert(data.message || 'Erro no cadastro');
+            }
+        } catch (error) {
+            console.error('Erro ao enviar dados:', error);
+            alert('Erro inesperado');
+        } finally {
+            button.disabled = false;
+            button.textContent = 'Criar conta';
+        }
+    });
+</script>
