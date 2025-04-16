@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Perfil - Chihiro B.</title>
+  <link rel="stylesheet" href="/Front-end/styles/perfil.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header class="header">
+    <div class="header-bg">
+      <img src="/Front-end/images/Image.png" alt="Fundo com livros">
+    </div>
+
+    <div class="header-content">
+      <div class="profile-info">
+        <img src="/Front-end/images/Avatar.png" alt="Avatar" class="avatar">
+        <h1 class="username">
+          Chihiro B. <i class="fas fa-pen"></i>
+        </h1>
+      </div>
+
+      <nav class="menu">
+        <a href="/Front-end/pages/book/perfil.html"><i class="fas fa-id-badge"></i> Perfil</a>
+        <a href="/Front-end/pages/book/add.html"><i class="fas fa-heart"></i> Resumos</a>
+        <a href="/Front-end/pages/book/biblioteca.html"><i class="fas fa-book"></i> Biblioteca</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="card">
+    <h2>Sobre</h2>
+    <p class="quote">“A proporção, em massa, dos elementos que participam da composição de uma substância é sempre constante e independente do processo químico pelo qual a substância é obtida.”</p>
+
+    <ul class="info-list">
+      <li><span>📍</span> BR</li>
+      <li><span>📧</span> brown.dejah@parisian.com</li>
+      <li><span>💼</span> UX Designer at Google</li>
+      <li><span>🎓</span> Studied at College of New Jersey</li>
+    </ul>
+  </div>
+
+  <div class="stats-container">
+    <div class="stat-box">
+      <p class="stat-number">4</p>
+      <p>Lidos</p>
+    </div>
+    <div class="stat-box">
+      <p class="stat-number">2</p>
+      <p>Lendo</p>
+    </div>
+    <div class="stat-box">
+      <p class="stat-number">6</p>
+      <p>Quero Ler</p>
+    </div>
+    <div class="stat-box">
+      <p class="stat-number">1</p>
+      <p>Relendo</p>
+    </div>
+    <div class="stat-box">
+      <p class="stat-number">2</p>
+      <p>Abandonei</p>
+    </div>
+    <div class="stat-box">
+      <p class="stat-number">8</p>
+      <p>Resumos</p>
+    </div>
+    <div class="stat-box calendar-box">
+      <div class="calendar-icon">📅</div>
+      <p>Minhas Leituras 2024</p>
+    </div>
+  </div>
+  <section class="library-section">
+    <div class="library-header">
+      <h2>Minha Biblioteca</h2>
+      <button class="add-button">Adicionar Livro</button>
+    </div>
+
+    <div class="book-grid">
+      <div class="book-card">
+        <img src="/Front-end/images/memorias.png" alt="Memórias Póstumas de Brás Cubas" />
+        <div class="book-info">
+          <p class="title">Memórias Póstumas de Brás Cubas</p>
+          <p class="date">05 Oct 2022</p>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <img src="/Front-end/images/morro.png" alt="O Morro dos Ventos Uivantes" />
+        <div class="book-info">
+          <p class="title">O Morro dos Ventos Uivantes</p>
+          <p class="date">05 Oct 2022</p>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <img src="/Front-end/images/Book _ Marcel Proust.png" alt="Em Busca do Tempo Perdido" />
+        <div class="book-info">
+          <p class="title">Em Busca do Tempo Perdido</p>
+          <p class="date">05 Oct 2022</p>
+        </div>
+      </div>
+
+  </section>
+
+  <section class="resumos-section">
+    <div class="resumos-header">
+      <h2>Meus Resumos</h2>
+      <button class="add-button">Adicionar Resumo</button>
+    </div>
+
+    <div class="resumo-card">
+      <div class="resumo-content">
+        <span class="badge">Published</span>
+        <p class="titulo">Memórias Póstumas de Brás Cubas</p>
+        <p class="descricao">
+          Verão, Harry Potter, agora com 14 anos, sente sua cicatriz arder durante um sonho bastante real com Lord Voldemort, o qual não consegue esquecer...
+        </p>
+        <div class="meta-inferior">
+          <span class="data">12 Aug 2022 10:00 PM</span>
+          <div class="interacoes">
+            <span>4 💙</span>
+          </div>
+        </div>
+      </div>
+      <div class="resumo-imagem">
+        <img src="/Front-end/images/memorias.png" alt="Capa do livro Memórias Póstumas" />
+      </div>
+    </div>
+
+    <div class="resumo-card">
+      <div class="resumo-content">
+        <span class="badge">Published</span>
+        <p class="titulo">O Morro dos Ventos Uivantes</p>
+        <p class="descricao">
+          Verão, Harry Potter, agora com 14 anos, sente sua cicatriz arder durante um sonho bastante real com Lord Voldemort, o qual não consegue esquecer...
+        </p>
+        <div class="meta-inferior">
+          <span class="data">12 Aug 2022 10:00 PM</span>
+          <div class="interacoes">
+            <span>5 💬</span>
+            <span>12 👁️</span>
+            <span>4 💙</span>
+          </div>
+        </div>
+      </div>
+      <div class="resumo-imagem">
+        <img src="/Front-end/images/morro.png" alt="Capa do livro O Morro dos Ventos Uivantes" />
+      </div>
+    </div>
+  </section>
+</body>
+</html>
