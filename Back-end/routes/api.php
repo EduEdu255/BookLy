@@ -6,6 +6,8 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PasswordRecoveryController;
+
 
 Route::get('/', function () {
     return response()->json(['message' => 'Hello World, Bookly!']);
@@ -31,4 +33,6 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/notes/{id}', [NoteController::class, 'show']);
     Route::post('/notes', [NoteController::class, 'store']);
     Route::delete('/notes/{id}', [NoteController::class, 'delete']);
+
+    Route::post('/send-password-recovery', [PasswordRecoveryController::class, 'sendPasswordRecoveryEmail']);
 });

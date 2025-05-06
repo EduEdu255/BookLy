@@ -19,12 +19,17 @@ body {
     gap: 10px;
 }
 
+label {
+    text-align: start;
+}
+
 form {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 10px;
-    width: 80%;
-    max-width: 300px;
+    width: 100%;
+    max-width: 500px;
 }
 
 
@@ -47,6 +52,7 @@ input {
     background-color: #213E60; 
     color: white;
     outline: none;
+    width: 40%;
 }
 
 input::placeholder {
