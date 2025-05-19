@@ -12,6 +12,8 @@ class BookController extends Controller
         return response()->json($request->user()->books);
     }
 
+
+
     public function show(Request $request, int $id)
     {
         if (!$book = $request->user()->books()->find($id)) {
@@ -20,6 +22,8 @@ class BookController extends Controller
 
         return response()->json($book);
     }
+
+
 
     public function store(Request $request)
     {

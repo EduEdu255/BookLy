@@ -12,6 +12,8 @@ class UserController extends Controller
         return response()->json($request->user());
     }
 
+
+
     public function findById(int $id)
     {
         if (!$user = User::find($id)) {
@@ -26,6 +28,8 @@ class UserController extends Controller
         ]);
     }
 
+
+
     public function update(Request $request)
     {
         $validated = $request->validate([
@@ -37,6 +41,8 @@ class UserController extends Controller
 
         return response()->json(['message' => 'Usuário atualizado com sucesso']);
     }
+
+
 
     public function delete(Request $request)
     {

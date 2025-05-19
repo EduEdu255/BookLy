@@ -13,21 +13,25 @@ class NoteController extends Controller
         return response()->json(['notes' => $book->notes]);
     }
 
+
+
     public function show(Request $request, int $id)
     {
-        if(!$note = Note::find($id)){
+        if (!$note = Note::find($id)) {
             return response()->json(['message' => 'Anotação não encontrada'], 404);
         }
 
         return response()->json(['note' => $note]);
     }
 
+
+
     public function store(Request $request)
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required',
-            'book_id' => 'required|integer|exists:books,id' 
+            'book_id' => 'required|integer|exists:books,id'
         ]);
 
         $note = Note::create($validated);
@@ -38,9 +42,11 @@ class NoteController extends Controller
         ], 201);
     }
 
+
+
     public function delete(Request $request, int $id)
     {
-        if(!$note = Note::find($id)){
+        if (!$note = Note::find($id)) {
             return response()->json(['message' => 'Anotação não encontrada'], 404);
         }
 
