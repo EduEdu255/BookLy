@@ -12,10 +12,7 @@ Route::get('/', function () {
 });
 
 Route::post('/register', [AuthController::class, 'register'])->name('register');
-
-Route::get('/login', function () {
-    return response()->json(['message' => 'Forbidden'], 403);
-});
+Route::get('/login', fn() => response()->json(['message' => 'Forbidden'], 403));
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 Route::get('/users/{id}', [UserController::class, 'findById'])->name('findById');
