@@ -12,7 +12,12 @@ Route::get('/', function () {
 });
 
 Route::post('/register', [AuthController::class, 'register'])->name('register');
+
+Route::get('/login', function(){
+    return response()->json(['message' => 'Forbidden'], 403);
+});
 Route::post('/login', [AuthController::class, 'login'])->name('login');
+
 Route::get('/user/{id}', [UserController::class, 'findById'])->name('findById');
 
 Route::middleware(['auth:sanctum'])->group(function () {

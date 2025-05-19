@@ -32,6 +32,8 @@ class BookController extends Controller
             'published_at' => 'required|date',
         ]);
 
+        $new_book['user_id'] = $request->user()->id;
+
         Book::create($new_book);
 
         return response()->json([
