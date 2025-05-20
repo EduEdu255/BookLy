@@ -15,7 +15,7 @@ class NoteController extends Controller
 
     public function show(Request $request, int $id)
     {
-        if(!$note = Note::find($id)){
+        if (!$note = Note::find($id)) {
             return response()->json(['message' => 'Anotação não encontrada'], 404);
         }
 
@@ -27,7 +27,7 @@ class NoteController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required',
-            'book_id' => 'required|integer|exists:books,id' 
+            'book_id' => 'required|integer|exists:books,id'
         ]);
 
         $note = Note::create($validated);
@@ -38,9 +38,27 @@ class NoteController extends Controller
         ], 201);
     }
 
+    public function update(Request $request, int $id)
+    {
+        if (!$note = Note::find($id)) {
+            return response()->json(['message' => 'Anotação não encontrada'], 404);
+        }
+
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required'
+        ]);
+
+        $validated['book_id'] = $note->book_id;
+
+        $note->update($validated);
+
+        return response()->json(['message' => 'Anotação atualizada com sucesso']);
+    }
+
     public function delete(Request $request, int $id)
     {
-        if(!$note = Note::find($id)){
+        if (!$note = Note::find($id)) {
             return response()->json(['message' => 'Anotação não encontrada'], 404);
         }
 
