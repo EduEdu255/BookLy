@@ -1,98 +1,158 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>biblioteca</title>
-    <link rel="stylesheet" href="/Front-end/styles/general/reset.css" />
-    <link rel="stylesheet" href="/Front-end/styles/biblioteca.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>biblioteca</title>
+  <link rel="stylesheet" href="/Front-end/styles/general/reset.css" />
+  <link rel="stylesheet" href="/Front-end/styles/biblioteca.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
 
-    <title>Biblioteca</title>
+  <title>Biblioteca</title>
 </head>
+
 <body>
-    <header>
-        <img src="/Front-end/images/ImgHeader.png"  class="img-header"/>
-        <div class="header">
-            <div class="profile">
-                <img src="/Front-end/images/Avatar.png" alt="Avatar do usuário" class="img-profile">
-                <span>Chihiro B.</span> 
-                <a href="#"><img src="/Front-end/svg/Icon-pen.svg" alt=""></a>
-            </div>
-            <nav class="menu">
-              <a href="/Front-end/pages/book/perfil.html" class="links">
-                  <img src="/Front-end/svg/Icon-Perfil.svg" />
-                  Perfil</a>
-              <a href="/Front-end/pages/book/Create-Product.html" class="links" >
-                  <img src="/Front-end/svg/Icon-Resumo.svg" />
-                  Resumos</a>
-              <a href="/Front-end/pages/book/biblioteca.html" class="links" >
-                  <img src="/Front-end/svg/Icon-Biblioteca.svg" />
-                  Biblioteca</a>
-          </nav>
-        </div>
-    </header>
-    <main class="container">
+  <header>
+    <img src="/Front-end/images/ImgHeader.png" class="img-header" />
+    <div class="header">
+      <div class="profile">
+        <img src="/Front-end/images/Avatar.png" alt="Avatar do usuário" class="img-profile">
+        <span>Chihiro B.</span>
+        <a href="#"><img src="/Front-end/svg/Icon-pen.svg" alt=""></a>
+      </div>
+      <nav class="menu">
+        <a href="/Front-end/pages/book/perfil.html" class="links">
+          <img src="/Front-end/svg/Icon-Perfil.svg" />
+          Perfil</a>
+        <a href="/Front-end/pages/book/Create-Product.html" class="links">
+          <img src="/Front-end/svg/Icon-Resumo.svg" />
+          Resumos</a>
+        <a href="/Front-end/pages/book/biblioteca.html" class="links">
+          <img src="/Front-end/svg/Icon-Biblioteca.svg" />
+          Biblioteca</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
 
-        <div class="info-top">
-            <div class="book-stats">
-                <div >Leram <span>5</span></div>
-                <div>Lendo <span>2</span></div>
-                <div>Querem ler <span>6</span></div>
-                <div>Relendo <span>1</span></div>
-                <div>Abandonos <span>8</span></div>
-                <div>Resenhas <span>8</span></div>
-            </div>
-            <div class="data">
-                <img src="/Front-end/svg/Icon-Data.svg">
-                <p>Minhas Leituras 2025</p>
-            </div>
-        </div>
+    <div class="info-top">
+      <div class="book-stats">
+        <div>Leram <span>5</span></div>
+        <div>Lendo <span>2</span></div>
+        <div>Querem ler <span>6</span></div>
+        <div>Relendo <span>1</span></div>
+        <div>Abandonos <span>8</span></div>
+        <div>Resenhas <span>8</span></div>
+      </div>
+      <div class="data">
+        <img src="/Front-end/svg/Icon-Data.svg">
+        <p>Minhas Leituras 2025</p>
+      </div>
+    </div>
 
-        <input type="text" class="search-box" placeholder="Busque por título, autor, editora, ISBN...">
+    <input type="text" id="search-input" class="search-box" placeholder="Busque por título, autor, editora, ISBN..." />
 
-        <h1 class="add-titulo">Minha Biblioteca</h1>
-        
-        <div class="container">
+    <h1 class="add-titulo">Minha Biblioteca</h1>
 
-            <div class="grid">
-              <div class="book">
-                <img src="/Front-end/images/Capa Livro Exemplo.png" alt="Harry Potter e o Cálice de Fogo" />
-                <p>Harry Potter e o Cálice de Fogo</p>
-                <span>05 Oct 2022</span>
-              </div>
-              <div class="book">
-                <img src="/Front-end/images/Capa Livro Exemplo.png" alt="Harry Potter e o Cálice de Fogo" />
-                <p>Harry Potter e o Cálice de Fogo</p>
-                <span>05 Oct 2022</span>
-              </div>
-        
-              <div class="book">
-                <img src="/Front-end/images/Capa Livro Exemplo.png" alt="Harry Potter e o Cálice de Fogo" />
-                <p>Harry Potter e o Cálice de Fogo</p>
-                <span>05 Oct 2022</span>
-              </div>
-        
-              <div class="book">
-                <img src="/Front-end/images/Capa Livro Exemplo.png" alt="Harry Potter e o Cálice de Fogo" />
-                <p>Harry Potter e o Cálice de Fogo</p>
-                <span>05 Oct 2022</span>
-              </div>
+    <div class="container">
+      <div class="grid" id="book-results">
+        <!-- Os livros da API serão inseridos aqui via JS -->
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 20px;">
+      <button id="load-more-btn" style="padding: 10px 20px; font-size: 16px;">Carregar mais</button>
+    </div>
 
-              <div class="book">
-                <img src="/Front-end/images/Capa Livro Exemplo.png" alt="Harry Potter e o Cálice de Fogo" />
-                <p>Harry Potter e o Cálice de Fogo</p>
-                <span>05 Oct 2022</span>
-              </div>
-        
-            </div>
-          </div>
 
-        
-        
-        
-    </main>
+
+    <script>
+      const input = document.getElementById('search-input');
+      const container = document.getElementById('book-results');
+      const loadMoreBtn = document.getElementById('load-more-btn');
+
+      let startIndex = 0;
+      let currentQuery = 'aventura'; // consulta inicial
+
+      input.addEventListener('keyup', function (e) {
+        if (e.key === 'Enter') {
+          startIndex = 0;
+          currentQuery = input.value.trim() || 'livros';
+          buscarLivros(currentQuery, false);
+        }
+      });
+
+      loadMoreBtn.addEventListener('click', () => {
+        startIndex += 12;
+        buscarLivros(currentQuery, true); // append = true
+      });
+
+      function buscarLivros(query, append = false) {
+        const url = `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(query)}&startIndex=${startIndex}&maxResults=12`;
+
+        fetch(url)
+          .then((res) => res.json())
+          .then((data) => {
+            if (!append) {
+              container.innerHTML = ''; // limpa se não for "append"
+            }
+
+            const livros = data.items || [];
+
+            livros.forEach((livro) => {
+              const info = livro.volumeInfo;
+
+              const title = info.title || 'Sem título';
+              const authors = info.authors ? info.authors.join(', ') : 'Desconhecido';
+              const date = info.publishedDate || 'Sem data';
+              const image = info.imageLinks
+                ? info.imageLinks.thumbnail
+                : '/Front-end/images/Capa Livro Exemplo.png';
+
+              const bookElement = document.createElement('div');
+              bookElement.classList.add('book');
+              bookElement.innerHTML = `
+            <img src="${image}" alt="${title}">
+            <p>${title}</p>
+            <span>${date}</span>
+          `;
+
+              bookElement.addEventListener('click', () => {
+                window.location.href = `/Front-end/pages/book/Create-Product.html?id=${livro.id}`;
+              });
+
+              container.appendChild(bookElement);
+            });
+
+            // Esconde o botão se não houver mais livros
+            if (!data.items || data.items.length < 12) {
+              loadMoreBtn.style.display = 'none';
+            } else {
+              loadMoreBtn.style.display = 'inline-block';
+            }
+
+          })
+          .catch((error) => {
+            console.error('Erro ao buscar livros:', error);
+            if (!append) container.innerHTML = '<p>Erro ao carregar livros.</p>';
+          });
+      }
+
+      // Carrega livros ao abrir a página
+      document.addEventListener('DOMContentLoaded', () => {
+        buscarLivros(currentQuery);
+      });
+    </script>
+
+
+
+
+
+  </main>
 </body>
+
 </html>

@@ -3,6 +3,15 @@
         Options -MultiViews -Indexes
     </IfModule>
 
+    <IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /Bookly/Back-end/public/
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [L]
+    </IfModule>
+
+
     RewriteEngine On
 
     # Handle Authorization Header

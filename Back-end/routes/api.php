@@ -37,4 +37,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::delete('/notes/{id}', [NoteController::class, 'delete']);
 
     Route::post('/send-password-recovery', [PasswordRecoveryController::class, 'sendPasswordRecoveryEmail']);
+
+    Route::post('/livros', [LivroController::class, 'store']);
+
 });

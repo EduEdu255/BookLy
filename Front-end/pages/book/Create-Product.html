@@ -1,71 +1,79 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Criar Produto</title>
     <link rel="stylesheet" href="/Front-end/styles/reset.css" />
-    <link rel="stylesheet" href="/Front-end/styles/Create-Products.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-
-
+    <link rel="stylesheet" href="/Front-end/styles/Create-Products.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet" />
 </head>
+
 <body>
     <header>
-        <img src="/Front-end/images/ImgHeader.png"  class="img-header"/>
+        <img src="/Front-end/images/ImgHeader.png" class="img-header" />
         <div class="header">
             <div class="profile">
-                <img src="/Front-end/images/Avatar.png" alt="Avatar do usuário" class="img-profile">
-                <span>Chihiro B.</span> 
-                <a href="#"><img src="/Front-end/svg/Icon-pen.svg" alt=""></a>
+                <img src="/Front-end/images/Avatar.png" alt="Avatar do usuário" class="img-profile" />
+                <span>Chihiro B.</span>
+                <a href="#"><img src="/Front-end/svg/Icon-pen.svg" alt="" /></a>
             </div>
             <nav class="menu">
                 <a href="/Front-end/pages/book/perfil.html" class="links">
-                    <img src="/Front-end/svg/Icon-Perfil.svg" />
-                    Perfil</a>
-                <a href="/Front-end/pages/book/Create-Product.html" class="links" >
-                    <img src="/Front-end/svg/Icon-Resumo.svg" />
-                    Resumos</a>
-                <a href="/Front-end/pages/book/biblioteca.html" class="links" >
-                    <img src="/Front-end/svg/Icon-Biblioteca.svg" />
-                    Biblioteca</a>
+                    <img src="/Front-end/svg/Icon-Perfil.svg" /> Perfil
+                </a>
+                <a href="/Front-end/pages/book/Create-Product.html" class="links">
+                    <img src="/Front-end/svg/Icon-Resumo.svg" /> Resumos
+                </a>
+                <a href="/Front-end/pages/book/biblioteca.html" class="links">
+                    <img src="/Front-end/svg/Icon-Biblioteca.svg" /> Biblioteca
+                </a>
             </nav>
         </div>
     </header>
 
     <main class="container">
         <h1 class="add-titulo">Adicionar livros</h1>
-        <input type="text" class="search-box" placeholder="Busque por título, autor, editora, ISBN...">
+
 
 
         <div class="container-book">
             <div class="book-container">
-                <img src="/Front-end/images/Capa Livro Exemplo.png" alt="Harry Potter e o Cálice de Fogo" class="livro-capa">
+
+                <img src="/Front-end/images/Capa Livro Exemplo.png" alt="Capa do livro" class="livro-capa"
+                    id="livro-capa" />
                 <div class="book-info">
-                    <h2>Harry Potter e o Cálice de Fogo</h2>
-                    <p class="author">J.K. Rowling</p>
-                    <span class="rating">4.5</span>
+
+                    <h2 id="livro-titulo">Título do Livro</h2>
+                    <p class="author" id="livro-autor">Autor</p>
+
+                    <span class="rating" id="livro-rating"></span>
                 </div>
             </div>
             <div class="book-info">
                 <div class="book-stats">
-                    <div >Leram <span>5</span></div>
+                    <div>Leram <span>5</span></div>
                     <div>Lendo <span>2</span></div>
                     <div>Querem ler <span>6</span></div>
                     <div>Relendo <span>1</span></div>
                     <div>Abandonos <span>8</span></div>
                     <div>Resenhas <span>8</span></div>
                 </div>
-        
-                <p class="description">
-                    Verão, Harry Potter, agora com 14 anos, sente sua cicatriz arder durante um sonho bastante real com Lord Voldemort, o qual não consegue esquecer, três dias depois, já em companhia da família Weasley, com quem foi passar o restante das férias, na final da Copa Mundial de Quadribol. os Comensais da Morte, seguidores de Você-Sabe-Quem, reaparecem e alguém conjura a Marca Negra ? o sinal de Lord Voldemort ? projetando-a no céu pela primeira vez em 13 anos, causando pânico na comunidade mágica. Será que o terrível bruxo está voltando? Tudo indica que sim...O ano letivo já começa agitado. Harry volta para a Escola de Magia e Bruxaria de Hogwarts para cursar a quarta série. Acontecimentos inesperados ? como, por exemplo, a presença de um novo professor de Defesa contra as Artes das Trevas e um evento extraordinário promovido na escola ? alvoroçam os ânimos dos estudantes. Para surpresa de todos não haverá a tradicional Copa Anual de Quadribol entre Casas.
+
+
+                <p class="description" id="livro-descricao">
+                    Descrição do livro aqui...
                 </p>
-        
+
                 <p class="info">
-                    <img src="/Front-end/svg/Icon-Amarelo.svg" alt="">
-                     <span>Essa edição ainda não está na sua biblioteca, escolha uma opção abaixo e clique em adicionar</span>
+                    <img src="/Front-end/svg/Icon-Amarelo.svg" alt="" />
+                    <span id="info-status">Essa edição ainda não está na sua biblioteca, escolha uma opção abaixo e
+                        clique em adicionar</span>
                 </p>
 
                 <div class="div-actions">
@@ -76,19 +84,88 @@
                         <button class="btn">Relendo</button>
                         <button class="btn">Abandonei</button>
                     </div>
-
                 </div>
-         
-                
+
+
                 <div class="div-add-button">
                     <button class="add-button">Adicionar</button>
                 </div>
-                
             </div>
-
-
         </div>
-        
     </main>
+
+    <script>
+
+        function getLivroID() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('id');
+        }
+
+
+        function preencherDadosLivro(livro) {
+            const info = livro.volumeInfo;
+
+
+            document.getElementById('livro-capa').src = info.imageLinks ? info.imageLinks.thumbnail : '/Front-end/images/Capa Livro Exemplo.png';
+            document.getElementById('livro-capa').alt = info.title || 'Capa do livro';
+            document.getElementById('livro-titulo').textContent = info.title || 'Título não disponível';
+            document.getElementById('livro-autor').textContent = info.authors ? info.authors.join(', ') : 'Autor não disponível';
+
+
+            const ratingElem = document.getElementById('livro-rating');
+            if (info.averageRating) {
+                ratingElem.textContent = info.averageRating.toFixed(1);
+                ratingElem.style.display = 'inline-block';
+            } else {
+                ratingElem.style.display = 'none';
+            }
+
+
+            document.getElementById('livro-descricao').textContent = info.description || 'Sem descrição disponível';
+
+
+            document.getElementById('info-status').textContent =
+                'Essa edição ainda não está na sua biblioteca, escolha uma opção abaixo e clique em adicionar';
+        }
+
+
+        function mostrarErro() {
+            document.querySelector('.container-book').innerHTML = '<p>Livro não encontrado ou ID inválido.</p>';
+        }
+
+
+        const livroID = getLivroID();
+
+        if (livroID) {
+            fetch(`https://www.googleapis.com/books/v1/volumes/${livroID}`)
+                .then((res) => {
+                    if (!res.ok) throw new Error('Livro não encontrado');
+                    return res.json();
+                })
+                .then((livro) => preencherDadosLivro(livro))
+                .catch((error) => {
+                    console.error(error);
+                    mostrarErro();
+                });
+        } else {
+            mostrarErro();
+        }
+
+
+        const buttons = document.querySelectorAll('.actions .btn');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove 'active' de todos os botões
+                buttons.forEach(btn => btn.classList.remove('active'));
+
+                // Adiciona 'active' apenas ao botão clicado
+                button.classList.add('active');
+            });
+        });
+
+
+    </script>
 </body>
+
 </html>
