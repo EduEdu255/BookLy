@@ -49,8 +49,8 @@ class NoteController extends Controller
         }
 
         $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'content' => 'required'
+            'title' => 'sometimes|string|max:255',
+            'content' => 'sometimes|string|max:255'
         ]);
 
         $validated['book_id'] = $note->book_id;
