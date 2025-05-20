@@ -42,7 +42,23 @@ class NoteController extends Controller
         ], 201);
     }
 
+    public function update(Request $request, int $id)
+    {
+        if (!$note = Note::find($id)) {
+            return response()->json(['message' => 'Anotação não encontrada'], 404);
+        }
 
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required'
+        ]);
+
+        $validated['book_id'] = $note->book_id;
+
+        $note->update($validated);
+
+        return response()->json(['message' => 'Anotação atualizada com sucesso']);
+    }
 
     public function delete(Request $request, int $id)
     {

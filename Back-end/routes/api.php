@@ -27,10 +27,12 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/books', [BookController::class, 'index']);
     Route::get('/books/{id}', [BookController::class, 'show']);
     Route::post('/books', [BookController::class, 'store']);
+    Route::delete('/books/{id}', [BookController::class, 'delete']);
 
     Route::get('/books/{book}/notes', [NoteController::class, 'index']);
 
     Route::get('/notes/{id}', [NoteController::class, 'show']);
     Route::post('/notes', [NoteController::class, 'store']);
+    Route::put('/notes/{id}', [NoteController::class, 'update']);
     Route::delete('/notes/{id}', [NoteController::class, 'delete']);
 });
