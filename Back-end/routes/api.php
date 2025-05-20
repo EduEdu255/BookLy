@@ -14,8 +14,10 @@ Route::get('/', function () {
 });
 
 Route::post('/register', [AuthController::class, 'register'])->name('register');
+Route::get('/login', fn() => response()->json(['message' => 'Forbidden'], 403));
 Route::post('/login', [AuthController::class, 'login'])->name('login');
-Route::get('/user/{id}', [UserController::class, 'findById'])->name('findById');
+
+Route::get('/users/{id}', [UserController::class, 'findById'])->name('findById');
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
@@ -27,7 +29,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/books', [BookController::class, 'index']);
     Route::get('/books/{id}', [BookController::class, 'show']);
     Route::post('/books', [BookController::class, 'store']);
-    
+
     Route::get('/books/{book}/notes', [NoteController::class, 'index']);
 
     Route::get('/notes/{id}', [NoteController::class, 'show']);

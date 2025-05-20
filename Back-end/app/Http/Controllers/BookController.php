@@ -12,6 +12,8 @@ class BookController extends Controller
         return response()->json($request->user()->books);
     }
 
+
+
     public function show(Request $request, int $id)
     {
         if (!$book = $request->user()->books()->find($id)) {
@@ -20,6 +22,8 @@ class BookController extends Controller
 
         return response()->json($book);
     }
+
+
 
     public function store(Request $request)
     {
@@ -31,6 +35,8 @@ class BookController extends Controller
             'status' => 'string',
             'published_at' => 'required|date',
         ]);
+
+        $new_book['user_id'] = $request->user()->id;
 
         Book::create($new_book);
 

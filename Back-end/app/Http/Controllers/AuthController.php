@@ -28,6 +28,8 @@ class AuthController extends Controller
         ], 201);
     }
 
+
+
     public function login(Request $request)
     {
         $request->validate([
@@ -46,6 +48,8 @@ class AuthController extends Controller
             'token' => $user->createToken('auth_token')->plainTextToken
         ]);
     }
+
+
 
     public function logout(Request $request)
     {
