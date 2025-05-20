@@ -23,7 +23,7 @@ class BookController extends Controller
 
     public function store(Request $request)
     {
-        $new_book = $request->validate([
+        $validated = $request->validate([
             'external_id' => 'required|int',
             'title' => 'required|string',
             'description' => 'required|string',
@@ -32,11 +32,24 @@ class BookController extends Controller
             'published_at' => 'required|date',
         ]);
 
-        Book::create($new_book);
+        $validated['user_id'] = $request->user()->id;
+
+        $new_book = Book::create($validated);
 
         return response()->json([
             'message' => 'Book added succesfully',
             'book' => $new_book
         ], 201);
+    }
+
+    public function delete(int $id)
+    {
+        if (!$book = Book::find($id)) {
+            return response()->json(['message' => 'Livro não encontrado'], 404);
+        }
+
+        $book->delete();
+
+        return response()->json(['message' => 'Livro deletado com sucesso']);
     }
 }

@@ -13,15 +13,17 @@ class Book extends Model
         'description',
         'author',
         'status',
-        'published_at'
+        'published_at',
+        'user_id'
     ];
 
-    public function user(){
+    public function user()
+    {
         return $this->BelongsTo(User::class);
     }
 
-    public function notes(){
+    public function notes()
+    {
         return $this->hasMany(Note::class);
     }
 }
-
