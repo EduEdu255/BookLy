@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: bookly-app
+    ports:
+      - 8000:8000
+    volumes:
+      - ./backend:/var/www
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8.0
+    container_name: bookly-mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: bookly
+      MYSQL_USER: bookly_user
+      MYSQL_PASSWORD: secret
+    volumes:
+      - dbdata:/var/lib/mysql
+
+  frontend:
+    image: nginx:alpine
+    container_name: bookly-frontend
+    ports:
+      - 8080:80
+    volumes:
+      - ./frontend:/usr/share/nginx/html:ro
+
+volumes:
+  dbdata:
