@@ -8,6 +8,6 @@ class LibraryController extends Controller
 {
     public function index(Request $request)
     {
-        dd('teste');
+        return view('app.home');
     }
 }

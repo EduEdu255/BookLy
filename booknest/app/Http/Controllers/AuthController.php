@@ -40,4 +40,10 @@ class AuthController extends Controller
             'email' => 'Those credentials does not match',
         ])->onlyInput('email');
     }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/login');
+    }
 }
