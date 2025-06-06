@@ -15,4 +15,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
     Route::get('/my-library', [LibraryController::class, 'index']);
+
+    Route::get('/books/search', fn() => view('app.books.search'));
 });
