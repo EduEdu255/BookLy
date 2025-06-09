@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\LibraryController;
 use App\Http\Controllers\NoteController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', fn() => view('lp'));
@@ -17,6 +18,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
     Route::get('/my-library', [LibraryController::class, 'index'])->name('home');
+    Route::get('/profile/edit', [UserController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile/update', [UserController::class, 'update'])->name('profile.update');
 
     Route::get('/books/search', fn() => view('app.books.search', ['books' => []]));
     Route::get('/books/search/result', [BookController::class, 'search'])->name('books.search.result');

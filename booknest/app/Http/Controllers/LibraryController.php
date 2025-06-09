@@ -11,7 +11,7 @@ class LibraryController extends Controller
     {
         $user = $request->user();
 
-        $status = '';
+        $status = null;
         if ($request->filled('status')) {
             $status = $request->input('status');
         }
