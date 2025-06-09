@@ -9,7 +9,7 @@
         </a>
         <div class="space-x-4">
             <a href="/login"
-                class="bg-[#F7941E] hover:bg-[#d97d11] transition-all duration-200 text-white font-semibold px-8 py-2.5 rounded-xl">Entrar</a>
+                class="bg-[#d97d11] hover:bg-[#F7941E] transition-all duration-200 text-white font-semibold px-8 py-2.5 rounded-xl">Entrar</a>
             <a href="/register"
                 class="bg-[#F7941E] hover:bg-[#d97d11] transition-all duration-200 text-white font-semibold px-8 py-2.5 rounded-xl">Cadastrar</a>
         </div>
