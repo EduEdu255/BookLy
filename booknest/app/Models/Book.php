@@ -27,4 +27,15 @@ class Book extends Model
     {
         return $this->hasMany(Note::class);
     }
+
+    public static function getFiltered(User $user, ?string $status)
+    {
+        $query = $user->books();
+
+        if ($status) {
+            $query->where('status', $status);
+        }
+
+        return $query->get();
+    }
 }

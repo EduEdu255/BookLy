@@ -18,7 +18,34 @@
                 Livro</a>
         </div>
 
-         <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-6 gap-6 mt-5 mb-10">
+        <div class="mt-3 mb-6 flex items-center gap-3">
+            <a href="{{ route('home') }}"
+                class="{{ request('status') ? 'bg-gray-300 text-gray-700' : 'bg-[#006C9C] text-white' }} 
+              font-semibold px-5 py-2 rounded-xl hover:scale-95 transition-all duration-200">
+                Todos
+            </a>
+
+            <a href="{{ route('home', ['status' => 'ja li']) }}"
+                class="{{ request('status') == 'ja li' ? 'bg-[#006C9C] text-white' : 'bg-gray-300 text-gray-700' }} 
+              font-semibold px-5 py-2 rounded-xl hover:scale-95 transition-all duration-200">
+                Já li
+            </a>
+
+            <a href="{{ route('home', ['status' => 'estou lendo']) }}"
+                class="{{ request('status') == 'estou lendo' ? 'bg-[#006C9C] text-white' : 'bg-gray-300 text-gray-700' }} 
+              font-semibold px-5 py-2 rounded-xl hover:scale-95 transition-all duration-200">
+                Estou lendo
+            </a>
+
+            <a href="{{ route('home', ['status' => 'quero ler']) }}"
+                class="{{ request('status') == 'quero ler' ? 'bg-[#006C9C] text-white' : 'bg-gray-300 text-gray-700' }} 
+              font-semibold px-5 py-2 rounded-xl hover:scale-95 transition-all duration-200">
+                Quero ler
+            </a>
+        </div>
+
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-6 gap-6 mt-5 mb-10">
             @foreach ($books as $book)
                 <a href="/books/{{ $book['external_id'] }}"
                     class="border h-full max-h-[370px] border-[#919EAB33] rounded-2xl shadow-sm hover:scale-95 transition-all duration-200">
