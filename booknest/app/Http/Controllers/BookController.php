@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Services\BooksService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Request as FacadesRequest;
 
 class BookController extends Controller
 {

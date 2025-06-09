@@ -22,7 +22,7 @@
                 <div class="flex items-center gap-3 mt-5">
                     <img src="{{ asset('img/grid-icon.svg') }}" alt="Grid icon">
                     <p class="text-[#006C9C] font-medium">Essa edição já está na sua biblioteca, clique na opção
-                        abaixo para vizualizar a biblioteca</p>
+                        abaixo para visualizar a biblioteca</p>
                 </div>
                 <div class="flex items-baseline gap-5">
                     <a href="/my-library"
@@ -36,6 +36,9 @@
                             class="bg-red-400 font-semibold text-white mt-3 rounded-2xl px-12 py-3 cursor-pointer hover:scale-95 transition-all duration-200">Remover
                             da biblioteca</button>
                     </form>
+                </div>
+                <div class="mt-5">
+                    {{-- tabs com opções para o status do livro (Já li, Lendo, Quero ler) --}}
                 </div>
             @else
                 <div class="flex items-center gap-3 mt-5">
