@@ -22,7 +22,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/books/search/result', [BookController::class, 'search'])->name('books.search.result');
     Route::get('/books/{external_id}', [BookController::class, 'info']);
     Route::post('/books', [BookController::class, 'addToLib'])->name('books.add');
-    Route::delete('/books', [BookController::class, 'removeFromLib']);
+    Route::delete('/books', [BookController::class, 'removeFromLib'])->name('books.remove');
 
     Route::get('/notes/{book_id}', [NoteController::class, 'index']);
     Route::post('/notes', [NoteController::class, 'store']);

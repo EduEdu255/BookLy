@@ -43,4 +43,13 @@ class BookController extends Controller
 
         return redirect()->back()->with('success', 'Livro adicionado com sucesso!');
     }
+
+    public function removeFromLib(Request $request)
+    {
+        $request->user()->books()
+            ->where('external_id', $request->input('external_id'))
+            ->delete();
+
+        return redirect()->back()->with('success', 'Livro removido da biblioteca!');
+    }
 }

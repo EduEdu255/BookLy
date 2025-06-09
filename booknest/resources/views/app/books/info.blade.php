@@ -28,8 +28,9 @@
                     <a href="/my-library"
                         class="bg-[#006C9C] inline-block font-semibold text-white mt-3 rounded-2xl px-12 py-3 cursor-pointer hover:scale-95 transition-all duration-200">Ir
                         para a biblioteca</a>
-                    <form class="mt-5" action="{{ route('books.add') }}" method="POST">
+                    <form class="mt-5" action="{{ route('books.remove') }}" method="POST">
                         @csrf
+                        @method('DELETE')
                         <input type="hidden" name="external_id" value="{{ $book['external_id'] }}">
                         <button
                             class="bg-red-400 font-semibold text-white mt-3 rounded-2xl px-12 py-3 cursor-pointer hover:scale-95 transition-all duration-200">Remover
