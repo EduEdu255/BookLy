@@ -19,7 +19,7 @@ class BooksService
             $books[] = [
                 'external_id' => $item['id'] ?? null,
                 'title' => $volume_info['title'] ?? 'Título desconhecido',
-                'author' => $volume_info['authors'][0] ?? ['Autor desconhecido'],
+                'author' => $volume_info['authors'][0] ?? 'Autor desconhecido',
                 'description' => $volume_info['description'] ?? 'Sem descrição disponível',
                 'cover' => $volume_info['imageLinks']['thumbnail'] ?? null
             ];
@@ -38,7 +38,7 @@ class BooksService
         $book = [
             'external_id' => $json['id'] ?? null,
             'title' => $volume_info['title'] ?? 'Título desconhecido',
-            'author' => $volume_info['authors'][0] ?? ['Autor desconhecido'],
+            'author' => $volume_info['authors'][0] ?? 'Autor desconhecido',
             'description' => $volume_info['description'] ?? 'Sem descrição disponível',
             'cover' => $volume_info['imageLinks']['thumbnail'] ?? null
         ];
