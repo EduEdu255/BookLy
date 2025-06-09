@@ -27,7 +27,13 @@ class BookController extends Controller
     {
         $book = $this->service->getBookInfo($external_id);
         $user_books = $request->user()->books;
-        $user_has = $user_books->contains('external_id', $book['external_id']);
+
+        $user_has = false;
+
+        if ($user_book = $user_books->firstWhere('external_id', $book['external_id'])) {
+            $user_has = true;
+            $book['status'] = $user_book->status;
+        }
 
         return view('app.books.info', [
             'book' => $book,
@@ -50,5 +56,18 @@ class BookController extends Controller
             ->delete();
 
         return redirect()->back()->with('success', 'Livro removido da biblioteca!');
+    }
+
+    public function setStatus(Request $request)
+    {
+        $user = $request->user();
+        $user_book = $user->books()->where('external_id', $request->input('external_id'))->first();
+
+        if ($user_book) {
+            $user_book->status = $request->input('status');
+            $user_book->save();
+        }
+
+        return redirect()->back()->with('success', 'Status atualizado com sucesso!');
     }
 }

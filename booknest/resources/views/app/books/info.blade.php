@@ -1,6 +1,6 @@
 <x-head></x-head>
 
-<div class="bg-[#F0EDED] text-[#1C252E] h-full min-h-screen">
+<div class="bg-[#F0EDED] text-[#1C252E] h-full min-h-screen pb-10">
     <img class="w-screen h-28 object-cover" src="{{ asset('img/books-image.jpg') }}" alt="Books">
 
     <x-header></x-header>
@@ -37,8 +37,35 @@
                             da biblioteca</button>
                     </form>
                 </div>
-                <div class="mt-5">
-                    {{-- tabs com opções para o status do livro (Já li, Lendo, Quero ler) --}}
+                <h3 class="mt-10">Status de leitura</h3>
+                <div class="mt-3 mb-10 flex items-center gap-3">
+                    <div class="rounded-xl w-max h-full">
+                        <form action="{{ route('books.status') }}" method="POST" class="w-full h-full">
+                            @csrf
+                            @method('PATCH')
+                            <input type="hidden" name="external_id" value="{{ $book['external_id'] }}">
+                            <input type="hidden" name="status" value="ja li">
+                            <button class="{{ $book['status'] == 'ja li' ? 'bg-[#006C9C] text-white' : 'bg-gray-300 text-gray-700' }} font-semibold px-5 w-full h-full py-2 rounded-xl cursor-pointer hover:scale-95 transition-all duration-200">Já li</button>
+                        </form>
+                    </div>
+                    <div class="rounded-xl w-max h-full">
+                        <form action="{{ route('books.status') }}" method="POST" class="w-full h-full">
+                            @csrf
+                            @method('PATCH')
+                            <input type="hidden" name="external_id" value="{{ $book['external_id'] }}">
+                            <input type="hidden" name="status" value="estou lendo">
+                            <button class="{{ $book['status'] == 'estou lendo' ? 'bg-[#006C9C] text-white' : 'bg-gray-300 text-gray-700' }} font-semibold px-5 w-full h-full py-2 rounded-xl cursor-pointer hover:scale-95 transition-all duration-200">Estou lendo</button>
+                        </form>
+                    </div>
+                    <div class="rounded-xl w-max h-full">
+                        <form action="{{ route('books.status') }}" method="POST" class="w-full h-full">
+                            @csrf
+                            @method('PATCH')
+                            <input type="hidden" name="external_id" value="{{ $book['external_id'] }}">
+                            <input type="hidden" name="status" value="quero ler">
+                            <button class="{{ $book['status'] == 'quero ler' ? 'bg-[#006C9C] text-white' : 'bg-gray-300 text-gray-700' }} font-semibold px-5 w-full h-full py-2 rounded-xl cursor-pointer hover:scale-95 transition-all duration-200">Quero ler</button>
+                        </form>
+                    </div>
                 </div>
             @else
                 <div class="flex items-center gap-3 mt-5">
