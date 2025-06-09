@@ -8,6 +8,8 @@ class LibraryController extends Controller
 {
     public function index(Request $request)
     {
-        return view('app.home');
+        return view('app.home', [
+            'books' => $request->user()->books
+        ]);
     }
 }

@@ -14,6 +14,7 @@ class Book extends Model
         'title',
         'description',
         'author',
+        'cover',
         'user_id',
     ];
 
