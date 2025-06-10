@@ -30,5 +30,5 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/notes/{book_id}', [NoteController::class, 'new']);
     Route::post('/notes', [NoteController::class, 'store'])->name('notes.add');
-    Route::delete('/notes/{note}', [NoteController::class, 'delete']);
+    Route::delete('/notes', [NoteController::class, 'delete'])->name('notes.delete');
 });

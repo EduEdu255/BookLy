@@ -34,4 +34,15 @@ class NoteController extends Controller
 
         return redirect('books/' . $validated['external_book_id']);
     }
+
+    public function delete(Request $request)
+    {
+        if (!$note = Note::find($request->input('note_id'))) {
+            return redirect()->back()->with('error', 'Nota não encontrada.');
+        }
+
+        $note->delete();
+
+        return redirect()->back()->with('success', 'Nota deletada com sucesso!');
+    }
 }

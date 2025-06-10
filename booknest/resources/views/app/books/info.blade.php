@@ -79,9 +79,17 @@
                         href="/notes/{{ $book['external_id'] }}">Adicionar Resumo</a>
                 </div>
                 @forelse ($notes as $note)
-                    <div class="my-5 bg-white shadow-sm px-3 py-5 rounded-2xl">
-                        <h3 class="text-lg font-medium">{{ $note['title'] }}</h3>
-                        <p class="mt-1.5">{{ $note['description'] }}</p>
+                    <div class="flex justify-between items-start my-5 bg-white shadow-sm p-5 rounded-2xl">
+                        <div>
+                            <h3 class="text-lg font-medium">{{ $note['title'] }}</h3>
+                            <p class="mt-1.5">{{ $note['description'] }}</p>
+                        </div>
+                        <form action="{{ route('notes.delete') }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <input type="hidden" name="note_id" value="{{ $note['id'] }}">
+                            <button class="underline text-red-400 text-sm cursor-pointer">Remover</button>
+                        </form>
                     </div>
                 @empty
                     <p class="mt-5">Nenhum resumo sobre esse livro...</p>
