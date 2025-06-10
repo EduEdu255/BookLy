@@ -4,7 +4,7 @@ use App\Http\Controllers\ApiAuthController;
 use App\Http\Controllers\ApiBookController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', fn() => response()->json('Hello World, BookNest API!'));
+Route::get('/', fn() => response()->json(['Hello World, BookNest API!']));
 
 Route::post('/register', [ApiAuthController::class, 'register']);
 Route::post('/login', [ApiAuthController::class, 'login']);
