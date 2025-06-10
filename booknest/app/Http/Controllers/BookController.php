@@ -37,7 +37,8 @@ class BookController extends Controller
 
         return view('app.books.info', [
             'book' => $book,
-            'user_has' => $user_has
+            'user_has' => $user_has,
+            'notes' => $user_book?->notes ?? collect()
         ]);
     }
 

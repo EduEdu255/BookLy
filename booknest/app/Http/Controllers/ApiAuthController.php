@@ -33,7 +33,7 @@ class ApiAuthController extends Controller
         $user = User::where('email', $request->email)->first();
 
         if (!$user || !Hash::check($request->password, $user->password)) {
-            return response()->json(['email' => ['Credenciais inválidas.']]);
+            return response()->json(['email' => ['Credenciais inválidas.']], 401);
         }
 
         $token = $user->createToken('api_token')->plainTextToken;
