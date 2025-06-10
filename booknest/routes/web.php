@@ -28,7 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/books/status', [BookController::class, 'setStatus'])->name('books.status');
     Route::delete('/books', [BookController::class, 'removeFromLib'])->name('books.remove');
 
-    Route::get('/notes/{book_id}', [NoteController::class, 'index']);
-    Route::post('/notes', [NoteController::class, 'store']);
+    Route::get('/notes/{book_id}', [NoteController::class, 'new']);
+    Route::post('/notes', [NoteController::class, 'store'])->name('notes.add');
     Route::delete('/notes/{note}', [NoteController::class, 'delete']);
 });

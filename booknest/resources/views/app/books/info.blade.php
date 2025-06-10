@@ -37,7 +37,7 @@
                             da biblioteca</button>
                     </form>
                 </div>
-                <h3 class="mt-10">Status de leitura</h3>
+                <h3 class="mt-10 text-2xl font-bold">Status de leitura</h3>
                 <div class="mt-3 mb-10 flex items-center gap-3">
                     <div class="rounded-xl w-max h-full">
                         <form action="{{ route('books.status') }}" method="POST" class="w-full h-full">
@@ -45,7 +45,9 @@
                             @method('PATCH')
                             <input type="hidden" name="external_id" value="{{ $book['external_id'] }}">
                             <input type="hidden" name="status" value="ja li">
-                            <button class="{{ $book['status'] == 'ja li' ? 'bg-[#006C9C] text-white' : 'bg-gray-300 text-gray-700' }} font-semibold px-5 w-full h-full py-2 rounded-xl cursor-pointer hover:scale-95 transition-all duration-200">Já li</button>
+                            <button
+                                class="{{ $book['status'] == 'ja li' ? 'bg-[#006C9C] text-white' : 'bg-gray-300 text-gray-700' }} font-semibold px-5 w-full h-full py-2 rounded-xl cursor-pointer hover:scale-95 transition-all duration-200">Já
+                                li</button>
                         </form>
                     </div>
                     <div class="rounded-xl w-max h-full">
@@ -54,7 +56,9 @@
                             @method('PATCH')
                             <input type="hidden" name="external_id" value="{{ $book['external_id'] }}">
                             <input type="hidden" name="status" value="estou lendo">
-                            <button class="{{ $book['status'] == 'estou lendo' ? 'bg-[#006C9C] text-white' : 'bg-gray-300 text-gray-700' }} font-semibold px-5 w-full h-full py-2 rounded-xl cursor-pointer hover:scale-95 transition-all duration-200">Estou lendo</button>
+                            <button
+                                class="{{ $book['status'] == 'estou lendo' ? 'bg-[#006C9C] text-white' : 'bg-gray-300 text-gray-700' }} font-semibold px-5 w-full h-full py-2 rounded-xl cursor-pointer hover:scale-95 transition-all duration-200">Estou
+                                lendo</button>
                         </form>
                     </div>
                     <div class="rounded-xl w-max h-full">
@@ -63,10 +67,25 @@
                             @method('PATCH')
                             <input type="hidden" name="external_id" value="{{ $book['external_id'] }}">
                             <input type="hidden" name="status" value="quero ler">
-                            <button class="{{ $book['status'] == 'quero ler' ? 'bg-[#006C9C] text-white' : 'bg-gray-300 text-gray-700' }} font-semibold px-5 w-full h-full py-2 rounded-xl cursor-pointer hover:scale-95 transition-all duration-200">Quero ler</button>
+                            <button
+                                class="{{ $book['status'] == 'quero ler' ? 'bg-[#006C9C] text-white' : 'bg-gray-300 text-gray-700' }} font-semibold px-5 w-full h-full py-2 rounded-xl cursor-pointer hover:scale-95 transition-all duration-200">Quero
+                                ler</button>
                         </form>
                     </div>
                 </div>
+                <div class="flex justify-between items-baseline">
+                    <h3 class="mt-10 text-2xl font-bold">Meus resumos</h3>
+                    <a class="bg-[#E68C3A] font-semibold text-white mt-3 rounded-xl px-8 py-2 cursor-pointer hover:scale-95 transition-all duration-200"
+                        href="/notes/{{ $book['external_id'] }}">Adicionar Resumo</a>
+                </div>
+                @forelse ($notes as $note)
+                    <div class="my-5 bg-white shadow-sm px-3 py-5 rounded-2xl">
+                        <h3 class="text-lg font-medium">{{ $note['title'] }}</h3>
+                        <p class="mt-1.5">{{ $note['description'] }}</p>
+                    </div>
+                @empty
+                    <p class="mt-5">Nenhum resumo sobre esse livro...</p>
+                @endforelse
             @else
                 <div class="flex items-center gap-3 mt-5">
                     <img src="{{ asset('img/grid-icon.svg') }}" alt="Grid icon">
