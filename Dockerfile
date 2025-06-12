@@ -5,15 +5,16 @@ FROM php:8.3-fpm-alpine as composer_builder
 # Correções na lista de pacotes para compatibilidade com Alpine Linux
 RUN apk update && apk add --no-cache \
     curl \
-    postgresql-dev \  
+    postgresql-dev \
     unzip \
     mysql-client \
     git \
     build-base \
     libpng-dev \
-    libjpeg-turbo-dev \ 
-    libfreetype-dev \ 
+    libjpeg-turbo-dev \
+    freetype-dev \ 
     libxml2-dev \
+    libonig-dev \
     autoconf \
     g++ \
     make
