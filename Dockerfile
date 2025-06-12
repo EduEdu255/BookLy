@@ -50,7 +50,7 @@ RUN apk add --no-cache \
     curl \
     # Dependências mínimas para o runtime, apenas as libs
     postgresql-libs \
-    libzip \
+    libzip \ 
     libjpeg-turbo \
     libpng \
     freetype
@@ -79,5 +79,10 @@ RUN find /var/www/html/public -type d -exec chmod 755 {} \; \
 # Expõe a porta 8080 (Render escuta nesta porta)
 EXPOSE 8080
 
+# Adiciona STOPSIGNAL para encerramento elegante
+STOPSIGNAL SIGQUIT
+
 # Comando para iniciar o PHP-FPM e o Nginx
-CMD ["sh", "-c", "php-fpm && nginx -g \"daemon off;\""]
+# Primeiro, testa a configuração do Nginx. Se estiver OK, inicia ambos os serviços.
+# As aspas simples em 'daemon off;' são importantes para o sh -c
+CMD ["sh", "-c", "nginx -t && php-fpm && nginx -g 'daemon off;'"]
