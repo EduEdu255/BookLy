@@ -2,7 +2,6 @@
 FROM php:8.3-fpm-alpine as composer_builder
 
 # Instala dependências do sistema necessárias para as extensões PHP
-# Correções na lista de pacotes para compatibilidade com Alpine Linux
 RUN apk update && apk add --no-cache \
     curl \
     postgresql-dev \
@@ -18,14 +17,11 @@ RUN apk update && apk add --no-cache \
     autoconf \
     g++ \
     make \
-    # Adicionado para o problema do 'zip' e 'libzip'
     libzip-dev \
-    pkgconf # Ajuda a encontrar as bibliotecas de desenvolvimento
+    pkgconf
 
 # Instala extensões PHP
-# Use docker-php-ext-install para extensões nativas
 RUN docker-php-ext-install pdo_mysql pdo_pgsql mbstring exif pcntl bcmath zip
-# Para a extensão gd, precisamos de uma etapa adicional para Alpine
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd
 
@@ -48,9 +44,8 @@ FROM php:8.3-fpm-alpine
 RUN apk add --no-cache \
     nginx \
     curl \
-    # Dependências mínimas para o runtime, apenas as libs
     postgresql-libs \
-    libzip \ 
+    libzip \
     libjpeg-turbo \
     libpng \
     freetype
@@ -64,7 +59,14 @@ COPY . .
 # Copia as dependências do Composer da stage de build
 COPY --from=composer_builder /app/vendor /var/www/html/vendor
 
-# Configura o Nginx para Laravel
+# PASSO CRUCIAL AQUI: Cria o arquivo de configuração principal do Nginx
+# Ele garante que o bloco 'http' existe e inclui os arquivos de conf.d
+RUN echo "events { worker_connections 1024; }" > /etc/nginx/nginx.conf \
+    && echo "http { include /etc/nginx/conf.d/*.conf; }" >> /etc/nginx/nginx.conf \
+    && echo "pid /run/nginx.pid;" >> /etc/nginx/nginx.conf \
+    && echo "daemon off;" >> /etc/nginx/nginx.conf # Render precisa que ele rode em foreground
+
+# Copia a configuração do Laravel Nginx para conf.d
 # Este arquivo 'nginx.conf' deve estar na pasta 'docker/' na raiz do seu projeto
 COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
 
