@@ -40,10 +40,8 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
 
-        if (!Auth::attempt($request->only('email', 'password'))) {
-            throw ValidationException::withMessages([
-                'email' => ['Credenciais inválidas.'], // Mensagem de erro para credenciais
-            ]);
+        if (!$user || !Hash::check($request->password, $user->password)) {
+            return response()->json(['email' => ['Credenciais inválidas.']], 401);
         }
 
         $user = $request->user(); // Pega o usuário autenticado

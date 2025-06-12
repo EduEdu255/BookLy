@@ -11,8 +11,8 @@ class Note extends Model
 
     protected $fillable = [
         'title',
-        'content',
-        'book_external_id',
+        'description',
+        'external_book_id',
         'book_id'
     ];
 
