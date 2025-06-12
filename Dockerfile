@@ -39,15 +39,16 @@ RUN composer install --no-dev --optimize-autoloader --no-scripts --prefer-dist
 FROM php:8.3-fpm-alpine
 
 # Instala dependências do sistema para servir o Laravel, incluindo Nginx
+# CORREÇÃO AQUI: Simplifiquei os nomes de algumas libs
 RUN apk add --no-cache \
     nginx \
     curl \
-    # Dependências mínimas para o runtime, já que as de build estão na stage anterior
-    libpq \
+    # Dependências mínimas para o runtime
+    postgresql-libs \ 
     libzip \
     libjpeg-turbo \
     libpng \
-    libfreetype
+    freetype 
 
 # Define o diretório de trabalho dentro do contêiner para a aplicação
 WORKDIR /var/www/html
