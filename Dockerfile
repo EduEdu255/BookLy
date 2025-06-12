@@ -12,9 +12,9 @@ RUN apk update && apk add --no-cache \
     build-base \
     libpng-dev \
     libjpeg-turbo-dev \
-    freetype-dev \ 
+    freetype-dev \
     libxml2-dev \
-    libonig-dev \
+    oniguruma-dev \ 
     autoconf \
     g++ \
     make
