@@ -14,10 +14,13 @@ RUN apk update && apk add --no-cache \
     libjpeg-turbo-dev \
     freetype-dev \
     libxml2-dev \
-    oniguruma-dev \ 
+    oniguruma-dev \
     autoconf \
     g++ \
-    make
+    make \
+    # Adicionado para o problema do 'zip' e 'libzip'
+    libzip-dev \
+    pkgconf # Ajuda a encontrar as bibliotecas de desenvolvimento
 
 # Instala extensões PHP
 # Use docker-php-ext-install para extensões nativas
