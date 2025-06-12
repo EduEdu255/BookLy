@@ -1,44 +1,77 @@
-# Usa uma imagem PHP-FPM base
-FROM php:8.3-fpm
+# Stage 1: Build Composer dependencies and PHP extensions
+FROM php:8.3-fpm-alpine as composer_builder
 
-# Instalar extensões e dependências para Laravel
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    libpng-dev \
-    libjpeg62-turbo-dev \
-    libfreetype6-dev \
-    libonig-dev \
-    libxml2-dev \
-    zip \
-    unzip \
-    git \
+# Instala dependências do sistema necessárias para as extensões PHP
+RUN apk add --no-cache \
     curl \
+    libpq-dev \
     libzip-dev \
-    && docker-php-ext-install -j$(nproc) pdo_mysql mbstring exif pcntl bcmath gd zip \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+    unzip \
+    mysql-client \
+    git \
+    build-base \
+    libpng-dev \
+    libjpeg-turbo \
+    libjpeg-turbo-dev \
+    libfreetype6-dev \
+    freetype-dev # Adicione freetype-dev para garantir GD completo
 
-# Instalar Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+# Instala extensões PHP
+# Use docker-php-ext-install para extensões nativas
+RUN docker-php-ext-install pdo_mysql pdo_pgsql mbstring exif pcntl bcmath zip
+# Para a extensão gd, precisamos de uma etapa adicional para Alpine
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install -j$(nproc) gd
 
-# Define o diretório de trabalho dentro do contêiner
-WORKDIR /var/www
+# Instala Composer
+COPY --from=composer/composer:latest-bin /composer /usr/bin/composer
 
-# COPIAR O CÓDIGO FONTE PARA O CONTÊINER ANTES DE RODAR O COMPOSER INSTALL
-# Isso garante que o composer.json esteja presente durante o build
-COPY . /var/www
+# Define o diretório de trabalho para o Composer
+WORKDIR /app
 
-# Configurar permissões para o Laravel (essencial para cache, logs, uploads)
-# Garante que o usuário www-data (usado pelo PHP-FPM) seja o proprietário
-RUN chown -R www-data:www-data /var/www
+# Copia composer.json e composer.lock
+COPY composer.json composer.lock ./
 
-# Define permissões específicas para pastas que o Laravel precisa escrever
-RUN chmod -R 775 /var/www/storage \
-    && chmod -R 775 /var/www/bootstrap/cache
+# Instala dependências do Composer
+RUN composer install --no-dev --optimize-autoloader --no-scripts --prefer-dist
 
-# Define permissões para a pasta public.
-# d=diretórios, f=arquivos. Garante que diretórios tenham permissão de execução para entrar neles.
-RUN find /var/www/public -type d -exec chmod 755 {} \; \
-    && find /var/www/public -type f -exec chmod 644 {} \;
+# Stage 2: Final image for the Laravel application
+FROM php:8.3-fpm-alpine
 
-# Comando para iniciar o PHP-FPM
-CMD ["php-fpm"]
+# Instala dependências do sistema para servir o Laravel, incluindo Nginx
+RUN apk add --no-cache \
+    nginx \
+    curl \
+    # Dependências mínimas para o runtime, já que as de build estão na stage anterior
+    libpq \
+    libzip \
+    libjpeg-turbo \
+    libpng \
+    libfreetype
+
+# Define o diretório de trabalho dentro do contêiner para a aplicação
+WORKDIR /var/www/html
+
+# Copia o código da aplicação
+COPY . .
+
+# Copia as dependências do Composer da stage de build
+COPY --from=composer_builder /app/vendor /var/www/html/vendor
+
+# Configura o Nginx para Laravel
+# Este arquivo 'nginx.conf' deve estar na pasta 'docker/' na raiz do seu projeto
+COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
+
+# Define permissões para o Laravel (essencial para cache, logs, uploads)
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache && \
+    chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+
+# Define as permissões para a pasta public
+RUN find /var/www/html/public -type d -exec chmod 755 {} \; \
+    && find /var/www/html/public -type f -exec chmod 644 {} \;
+
+# Expõe a porta 8080 (Render escuta nesta porta)
+EXPOSE 8080
+
+# Comando para iniciar o PHP-FPM e o Nginx
+CMD ["sh", "-c", "php-fpm && nginx -g \"daemon off;\""]
