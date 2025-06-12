@@ -2,19 +2,21 @@
 FROM php:8.3-fpm-alpine as composer_builder
 
 # Instala dependências do sistema necessárias para as extensões PHP
-RUN apk add --no-cache \
+# Correções na lista de pacotes para compatibilidade com Alpine Linux
+RUN apk update && apk add --no-cache \
     curl \
-    libpq-dev \
-    libzip-dev \
+    postgresql-dev \  
     unzip \
     mysql-client \
     git \
     build-base \
     libpng-dev \
-    libjpeg-turbo \
-    libjpeg-turbo-dev \
-    libfreetype6-dev \
-    freetype-dev # Adicione freetype-dev para garantir GD completo
+    libjpeg-turbo-dev \ 
+    libfreetype-dev \ 
+    libxml2-dev \
+    autoconf \
+    g++ \
+    make
 
 # Instala extensões PHP
 # Use docker-php-ext-install para extensões nativas
@@ -39,16 +41,15 @@ RUN composer install --no-dev --optimize-autoloader --no-scripts --prefer-dist
 FROM php:8.3-fpm-alpine
 
 # Instala dependências do sistema para servir o Laravel, incluindo Nginx
-# CORREÇÃO AQUI: Simplifiquei os nomes de algumas libs
 RUN apk add --no-cache \
     nginx \
     curl \
-    # Dependências mínimas para o runtime
-    postgresql-libs \ 
+    # Dependências mínimas para o runtime, apenas as libs
+    postgresql-libs \
     libzip \
     libjpeg-turbo \
     libpng \
-    freetype 
+    freetype
 
 # Define o diretório de trabalho dentro do contêiner para a aplicação
 WORKDIR /var/www/html
